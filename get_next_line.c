@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbernard <marvin@42quebec.com>             +#+  +:+       +#+        */
+/*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:11:41 by jbernard          #+#    #+#             */
-/*   Updated: 2021/10/19 10:11:43 by jbernard         ###   ########.fr       */
+/*   Updated: 2021/10/21 13:31:06 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			i;
 
+	if (fd < 0 || fd > 12288)
+		return (NULL);
 	i = read_next_buffer(&save[fd], fd);
 	if (!i)
 		i = ft_strlen_char(save[fd], '\0');
